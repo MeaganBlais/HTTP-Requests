@@ -6,13 +6,13 @@ function getAndPrintHTMLChunks () {
     host: 'sytantris.github.io',
     path: '/http-examples/steps1.html'
   };
-http.get(requestOptions, function (input) {
-  input.setEncoding('utf8');
-  input.on('data', function (data) {
-    console.log('Chunk Received.', data)
+  http.get(requestOptions, function(input) {
+    input.setEncoding('utf8');
+    input.on('data', function(data) {
+      console.log('Chunk Received: ' + data + "\n")
+    });
   });
-});
 
 }
 
-getAndPrintHTMLChunks ()
+getAndPrintHTMLChunks()
