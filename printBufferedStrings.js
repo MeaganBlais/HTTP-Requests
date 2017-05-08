@@ -7,12 +7,13 @@ function getAndPrintHTML() {
     path: '/http-examples/steps1.html'
   };
   http.get(requestOptions, function(input) {
-    output += input.setEncoding('utf8');
-      output += input.on('data', function(data){
-        input.on('end', function(data) {
-          console.log('Chunks Received:', output)
-        });
-      });
+    input.setEncoding('utf8');
+    input.on('data', function(data){
+      output += data;
+    });
+    input.on('end', function(data) {
+      console.log('Chunks Received:', output)
+    });
   })
 }
 getAndPrintHTML()
